@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            width: 800px;
+            height: 600px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌍 Country Summary</h1>
+    <p>Total Countries: {{totalCountries}}</p>
+    <p>Last Refreshed: {{lastRefreshedAt}}</p>
+    <h2>Top 5 Countries by Estimated GDP:</h2>
+    <ul>
+        {{#each top5}}
+        <li>{{@index_1}}. {{this.name}} — {{this.estimated_gdp}}</li>
+        {{/each}}
+    </ul>
+</body>
+</html>

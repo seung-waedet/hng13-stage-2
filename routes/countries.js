@@ -78,4 +78,27 @@ router.get("/", countryController.getAllCountries);
 router.get("/image", countryController.getSummaryImage);
 router.get("/:name", countryController.getCountryByName);
 
+/**
+ * @swagger
+ * /countries/{name}:
+ *   delete:
+ *     summary: Delete a country by name
+ *     tags: [Countries]
+ *     parameters:
+ *       - in: path
+ *         name: name
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The name of the country
+ *     responses:
+ *       200:
+ *         description: Country deleted successfully
+ *       404:
+ *         description: Country not found
+ *       500:
+ *         description: Internal server error
+ */
+router.delete("/:name", countryController.deleteCountryByName);
+
 module.exports = router;

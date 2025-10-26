@@ -4,14 +4,9 @@ const { Country } = require("../models");
 const countryService = require("../services/countryService");
 const fs = require("fs");
 
-exports.refreshCountries = async (req, res) => {
-  try {
-    await countryService.refreshCountryData();
-    res.status(200).json({ message: "Country data refreshed successfully" });
-  } catch (error) {
-    logger.error(error);
-    res.status(500).json({ error: "Internal server error" });
-  }
+exports.refreshCountries = (req, res) => {
+  countryService.refreshCountryData().catch(logger.error);
+  res.status(202).json({ message: "Country data refresh initiated" });
 };
 
 exports.getAllCountries = async (req, res) => {
